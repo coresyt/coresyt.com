@@ -1,11 +1,8 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
+import theme from 'tailwindcss/defaultTheme';
 
 export default {
-	content: [
-		'./src/components/*.svelte',
-		'./src/routes/*.svelte',
-		'./src/app.html'
-	],
+	content: ['./src/components/*.svelte', './src/routes/*.svelte', './src/app.html'],
 	theme: {
 		extend: {
 			colors: {
@@ -20,10 +17,14 @@ export default {
 					'700': '#3b4269',
 					'800': '#343a58',
 					'900': '#2f334b',
-					'950': '#12131d',
-				},
+					'950': '#12131d'
+				}
 			},
-		},
+			fontFamily: {
+				sans: ['Geist', ...theme.fontFamily.sans],
+				mono: ['Geist Mono', ...theme.fontFamily.mono]
+			}
+		}
 	},
-	plugins: [],
-} as Config
+	plugins: []
+} as Config;
