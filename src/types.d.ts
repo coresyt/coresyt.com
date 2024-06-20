@@ -95,7 +95,7 @@ export interface GithubAPi {
   svn_url: string;
   tags_url: string;
   teams_url: string;
-  topics: any[];
+  topics: Array;
   trees_url: string;
   updated_at: Date;
   url: string;
@@ -106,8 +106,9 @@ export interface GithubAPi {
 }
 
 export interface GithubAPiRes {
-  name: GithubAPi['name'];
-  html_url: GithubAPi['html_url'];
-  language: GithubAPi['language'];
-  page: GithubAPi['homepage'];
+  name: string;
+  html_url: string;
+  language: string;
+  page?: string;
+  stars: number
 }
