@@ -1,23 +1,19 @@
 ---
-import Repo from "@components/Repo.astro";
-import type { GithubAPiRes } from "@/types";
+import type { GithubAPiRes } from "@/types"
+import Repo from "@components/Repo.astro"
 
-const BASE_URL = new URL(Astro.url.origin);
-const repos: GithubAPiRes[] = await fetch(`${BASE_URL}api/repos`).then(
-  (repos) => repos.json()
-);
+const BASE_URL = new URL(Astro.url.origin)
+const repos: GithubAPiRes[] = await fetch(`${BASE_URL}api/repos`).then((repos) => repos.json())
 ---
 
 <main
-  class="min-w-full sm:w-[500px] my-[calc(2*calc(5vw/3))] bg-clay-950/50 border-2 border-clay-950 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center gap-3 p-2.5 sm:grid sm:grid-cols-2"
+	class="my-[calc(2*calc(5vw/3))] flex min-w-full flex-col items-center justify-center gap-3 rounded-xl border-2 border-clay-950 bg-clay-950/50 p-2.5 backdrop-blur-sm sm:grid sm:w-[500px] sm:grid-cols-2"
 >
-  {
-    repos.length >= 0 ? (
-      repos.map((rp, i) => (
-        <Repo {...rp} reposLength={repos.length} repoIndex={i} />
-      ))
-    ) : (
-      <h2>No hay repositorios</h2>
-    )
-  }
+	{
+		repos.length >= 0 ? (
+			repos.map((rp, i) => <Repo {...rp} reposLength={repos.length} repoIndex={i} />)
+		) : (
+			<h2>No hay repositorios</h2>
+		)
+	}
 </main>

@@ -1,39 +1,28 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import RepoComponent from "@components/Repo.astro";
-import type { GithubAPiRes } from "@/types";
+import type { GithubAPiRes } from "@/types"
+import RepoComponent from "@components/Repo.astro"
+import Layout from "@layouts/Layout.astro"
 
-const { repo } = Astro.params;
+const { repo } = Astro.params
 
-const BASE_URL = new URL(Astro.url.origin);
-const repoObj: GithubAPiRes = await fetch(`${BASE_URL}api/${repo}`).then(
-  (repo) => repo.json()
-);
+const BASE_URL = new URL(Astro.url.origin)
+const repoObj: GithubAPiRes = await fetch(`${BASE_URL}api/${repo}`).then((repo) => repo.json())
 
 const dataPropsLayout = {
-  title: "CoresYT Portfolio",
-  desc: "Mi portafolio",
-  author: "CoresYT",
-  kw: [
-    "Portafolio",
-    "CoresYT",
-    "Programación",
-    "astro",
-    "svelte",
-    "javascript",
-    "react",
-    "nodejs",
-  ],
-};
+	title: "CoresYT Portfolio",
+	desc: "Mi portafolio",
+	author: "CoresYT",
+	kw: ["Portafolio", "CoresYT", "Programación", "astro", "svelte", "javascript", "react", "nodejs"],
+}
 ---
 
 <Layout {...dataPropsLayout}>
-  <a href=`${BASE_URL}`>{"<-"} Atrás</a>
-  <div class="min-w-screen min-h-screen flex items-center justify-center">
-    <main
-      class="min-w-full min-h-[300px] sm:w-[500px] bg-clay-950/50 border-2 border-clay-950 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center gap-3 p-2.5"
-    >
-      <RepoComponent {...repoObj} />
-    </main>
-  </div>
+	<a href=`${BASE_URL}`>{"<-"} Atrás</a>
+	<div class="min-w-screen flex min-h-screen items-center justify-center">
+		<main
+			class="flex min-h-[300px] min-w-full flex-col items-center justify-center gap-3 rounded-xl border-2 border-clay-950 bg-clay-950/50 p-2.5 backdrop-blur-sm sm:w-[500px]"
+		>
+			<RepoComponent {...repoObj} />
+		</main>
+	</div>
 </Layout>

@@ -1,31 +1,31 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import "@styles/app.css";
-import "@styles/fonts.css";
+import "@styles/app.css"
+import "@styles/fonts.css"
+import { ViewTransitions } from "astro:transitions"
 
 export interface Props {
-  title: string;
-  desc: string;
-  kw: Array<string>;
-  author: string;
+	title: string
+	desc: string
+	kw: Array<string>
+	author: string
 }
 
-const { title, desc, kw, author } = Astro.props;
+const { title, desc, kw, author } = Astro.props
 ---
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <title>CoresYT Portafolio</title>
-    <meta charset="utf-8" />
-    <meta name="description" content={desc} />
-    <meta name="author" lang="es" content={author} />
-    <meta name="keywords" content={kw.join(",")} />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/logo.webp" />
-    <ViewTransitions />
-  </head>
-  <body>
-    <slot />
-  </body>
+	<head>
+		<title>CoresYT Portafolio</title>
+		<meta charset="utf-8" />
+		<meta name="description" content={desc} />
+		<meta name="author" lang="es" content={author} />
+		<meta name="keywords" content={kw.join(",")} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/logo.webp" />
+		<ViewTransitions />
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>

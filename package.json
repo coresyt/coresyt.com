@@ -23,16 +23,17 @@
 		"typescript": "5.6.3"
 	},
 	"devDependencies": {
+		"@antfu/eslint-config": "0.43.1",
 		"@s-ui/mono": "2.45.0",
+		"@typescript-eslint/parser": "7.15.0",
+		"eslint": "8.57.0",
+		"eslint-config-prettier": "9.1.0",
+		"eslint-plugin-astro": "1.2.2",
+		"eslint-plugin-jsx-a11y": "6.10.2",
 		"prettier": "3.3.3",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-astro-organize-imports": "0.4.9",
-		"prettier-plugin-tailwindcss": "0.6.5",
-		"@typescript-eslint/parser": "7.15.0",
-		"@antfu/eslint-config": "0.43.1",
-		"eslint": "8.57.0",
-		"eslint-config-prettier": "9.1.0",
-		"eslint-plugin-astro": "1.2.2"
+		"prettier-plugin-tailwindcss": "0.6.5"
 	},
 	"type": "module",
 	"packageManager": "pnpm@9.14.2"

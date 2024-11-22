@@ -1,37 +1,28 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import ListRepos from "@components/ListRepos.astro";
+import Header from "@components/Header.astro"
+import ListRepos from "@components/ListRepos.astro"
+import Layout from "@layouts/Layout.astro"
 
 const dataPropsLayout = {
-  title: "CoresYT Portfolio",
-  desc: "Mi portafolio",
-  author: "CoresYT",
-  kw: [
-    "Portafolio",
-    "CoresYT",
-    "Programación",
-    "astro",
-    "svelte",
-    "javascript",
-    "react",
-    "nodejs",
-  ],
-};
+	title: "CoresYT Portfolio",
+	desc: "Mi portafolio",
+	author: "CoresYT",
+	kw: ["Portafolio", "CoresYT", "Programación", "astro", "svelte", "javascript", "react", "nodejs"],
+}
 ---
 
 <Layout {...dataPropsLayout}>
-  <Header />
+	<Header />
 
-  <ListRepos />
+	<ListRepos />
 
-  <footer>
-    <h2>
-      Todos los derechos reservados a <a
-        href="https://github.com/coresyt"
-        target="_blank"
-        rel="noopener noreferrer">coresyt</a
-      >
-    </h2>
-  </footer>
+	<footer>
+		<h2>
+			Todos los derechos reservados a <a
+				href="https://github.com/coresyt"
+				target="_blank"
+				rel="noopener noreferrer">coresyt</a
+			>
+		</h2>
+	</footer>
 </Layout>
