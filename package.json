@@ -7,6 +7,10 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
+		"lint": "eslint --ext .astro,.ts,.js,.tsx .",
+		"lint:fix": "eslint --ext .astro,.ts,.js,.tsx . --fix",
+		"format": "prettier --write src",
+		"format:check": "prettier --check src",
 		"cm": "sui-mono commit"
 	},
 	"dependencies": {
@@ -19,8 +23,17 @@
 		"typescript": "5.6.3"
 	},
 	"devDependencies": {
-		"@s-ui/mono": "2.45.0"
+		"@s-ui/mono": "2.45.0",
+		"prettier": "3.3.3",
+		"prettier-plugin-astro": "0.14.1",
+		"prettier-plugin-astro-organize-imports": "0.4.9",
+		"prettier-plugin-tailwindcss": "0.6.5",
+		"@typescript-eslint/parser": "7.15.0",
+		"@antfu/eslint-config": "0.43.1",
+		"eslint": "8.57.0",
+		"eslint-config-prettier": "9.1.0",
+		"eslint-plugin-astro": "1.2.2"
 	},
 	"type": "module",
-	"packageManager": "pnpm@9.13.2"
+	"packageManager": "pnpm@9.14.2"
 }
