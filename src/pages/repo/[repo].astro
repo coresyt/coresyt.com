@@ -1,0 +1,39 @@
+---
+import Layout from "@layouts/Layout.astro";
+import RepoComponent from "@components/Repo.astro";
+import type { GithubAPiRes } from "@/types";
+
+const { repo } = Astro.params;
+
+const BASE_URL = new URL(Astro.url.origin);
+const repoObj: GithubAPiRes = await fetch(`${BASE_URL}api/${repo}`).then(
+  (repo) => repo.json()
+);
+
+const dataPropsLayout = {
+  title: "CoresYT Portfolio",
+  desc: "Mi portafolio",
+  author: "CoresYT",
+  kw: [
+    "Portafolio",
+    "CoresYT",
+    "Programación",
+    "astro",
+    "svelte",
+    "javascript",
+    "react",
+    "nodejs",
+  ],
+};
+---
+
+<Layout {...dataPropsLayout}>
+  <a href=`${BASE_URL}`>{"<-"} Atrás</a>
+  <div class="min-w-screen min-h-screen flex items-center justify-center">
+    <main
+      class="min-w-full min-h-[300px] sm:w-[500px] bg-clay-950/50 border-2 border-clay-950 backdrop-blur-sm rounded-xl flex flex-col items-center justify-center gap-3 p-2.5"
+    >
+      <RepoComponent {...repoObj} />
+    </main>
+  </div>
+</Layout>

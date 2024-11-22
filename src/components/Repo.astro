@@ -1,0 +1,93 @@
+---
+import GithubIcon from "@components/Icons/Github.astro";
+import WebsiteIcon from "@components/Icons/Website.astro";
+import Star from "@components/Icons/Star.astro";
+
+import type { GithubAPiRes } from "@/types";
+
+export interface Props extends GithubAPiRes {
+  /** Length to repo */
+  reposLength?: number;
+  /** Index of the repo actually */
+  repoIndex?: number;
+}
+
+const { name, desc, page, html_url, stars, language, reposLength, repoIndex } =
+  Astro.props;
+
+const isOdd = (num: number): true | false => {
+  const op = num % 2;
+  return op === 0 ? true : op === 1 ? false : false;
+};
+
+const addClassToRepoIsOdd = ({
+  i,
+  length,
+}: {
+  i?: number;
+  length?: number;
+}) => {
+  if (!i || !length) return "";
+  if (isOdd(length)) return "";
+  if (i > length || i < length) return "";
+  return "grid-column-start: 1;grid-column-end: 3;";
+};
+
+const URL_BASE = new URL("/", Astro.url.origin);
+---
+
+<section
+  transition:name={name}
+  transition:animate="slide"
+  class="w-full flex flex-col items-center justify-center sm:gap-2"
+  style={addClassToRepoIsOdd({
+    i: repoIndex ? repoIndex + 1 : undefined,
+    length: reposLength,
+  })}
+>
+  <h4
+    class="text-lg font-bold [&>span]:text-clay-400 [&>span]:font-semibold [&>span]:font-mono sm:text-center"
+  >
+    <a href=`${URL_BASE}repo/${name}`>
+      {name}
+    </a>
+    <span>{language}</span>
+  </h4>
+  <p>{desc}</p>
+  <div
+    class="w-full flex items-center justify-center sm:justify-around gap-2 *:transition-all *:ease-in-out"
+  >
+    <a
+      href={String(html_url)}
+      target="_blank"
+      class="text-xs text-white duration-75 hover:text-sm hover:cursor-pointer hover:text-clay-300"
+    >
+      <span class="fill-clay-300">
+        <GithubIcon />
+      </span>
+      Github
+    </a>
+    {
+      page && (
+        <a
+          href={String(page)}
+          target="_blank"
+          class="text-[8px] text-white duration-75 hover:text-[10px] hover:cursor-pointer hover:text-clay-300"
+        >
+          <span class="fill-clay-400">
+            <WebsiteIcon />
+          </span>
+          Home Page
+        </a>
+      )
+    }
+    <p
+      class="text-[8px] text-center text-white duration-75 hover:text-[10px] hover:cursor-pointer hover:text-clay-300"
+    >
+      <span class="fill-clay-400 block w-12 hover:w-14"
+        ><Star class="min-w-full" /></span
+      >
+      {stars}
+    </p>
+  </div>
+</section>
