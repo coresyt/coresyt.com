@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge"
 export interface Props extends JSX.SVGAttributes {}
 
 const props = Astro.props
-const classNameSvg = twMerge("fill-current", props.class ? props.class : "")
+const classNameSvg = twMerge("stroke-current", props.class ? props.class : "")
 ---
 
 <svg class={classNameSvg} {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">

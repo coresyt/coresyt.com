@@ -1,6 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+	--color-clay-50: #f5f5fa;
+	--color-clay-100: #ebecf3;
+	--color-clay-200: #d2d5e5;
+	--color-clay-300: #aab0cf;
+	--color-clay-400: #7c86b4;
+	--color-clay-500: #5c689b;
+	--color-clay-600: #485181;
+	--color-clay-700: #3b4269;
+	--color-clay-800: #343a58;
+	--color-clay-900: #2f334b;
+	--color-clay-950: #12131d;
+
+	--font-sans: Geist, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+		"Segoe UI Symbol", "Noto Color Emoji";
+	--font-mono: Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+		"Courier New", monospace;
+}
 
 @layer base {
 	body {
