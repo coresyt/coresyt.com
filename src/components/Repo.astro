@@ -38,8 +38,7 @@ const languageWithColor =
 ---
 
 <section
-	transition:name={name}
-	transition:animate="slide"
+	transition:name={name + "_component"}
 	class="flex w-full flex-col items-center justify-center sm:gap-2"
 	style={addClassToRepoIsOdd({
 		i: repoIndex ? repoIndex + 1 : undefined,
@@ -49,13 +48,13 @@ const languageWithColor =
 	<h4
 		class="[&>span]:text-clay-400 text-center text-lg font-bold [&>span]:font-mono [&>span]:font-semibold"
 	>
-		<a href=`${URL_BASE}repo/${name}`>
+		<a href=`${URL_BASE}repo/${name}` transition:name={name}>
 			{name}
 		</a>
 		<br />
-		<span style=`color: ${languageWithColor};`>{language}</span>
+		<span style=`color: ${languageWithColor};` transition:name=`language-${name}`>{language}</span>
 	</h4>
-	<p>{desc}</p>
+	<p transition:name=`desc-${name}`>{desc}</p>
 	<div
 		class={twMerge(
 			"grid place-items-center h-20 w-full gap-2 *:transition-all *:ease-in-out sm:justify-around [&>a:hover]:mt-0 [&>a]:mt-4 [&>p:hover]:mt-0 [&>p]:mt-4",

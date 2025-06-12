@@ -1,7 +1,7 @@
 ---
 import "@styles/app.css"
 import "@styles/fonts.css"
-import { ViewTransitions } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 
 export interface Props {
 	title: string
@@ -16,14 +16,14 @@ const { title, desc, kw, author } = Astro.props
 <!doctype html>
 <html lang="es">
 	<head>
-		<title>CoresYT Portafolio</title>
+		<title>CoresYT Portafolio{title && " - " + title}</title>
 		<meta charset="utf-8" />
 		<meta name="description" content={desc} />
 		<meta name="author" lang="es" content={author} />
 		<meta name="keywords" content={kw.join(",")} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" href="/logo.webp" />
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 	<body>
 		<slot />
