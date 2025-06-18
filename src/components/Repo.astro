@@ -33,7 +33,8 @@ const CLASS_LINKS =
 	"hover:text-clay-300 text-center text-[10px] text-white duration-75 hover:cursor-pointer hover:text-[10px] [&>span>svg]:w-12 [&>span>svg:hover]:w-14 [&>span]:text-ce"
 const languageWithColor =
 	Object.entries(LanguagesWithColors).find(
-		([lang]) => lang.toLocaleLowerCase().trim() === language.toLocaleLowerCase().trim()
+		([lang]) =>
+			String(lang).toLocaleLowerCase().trim() === String(language).toLocaleLowerCase().trim()
 	)?.[1] || Default
 ---
 
